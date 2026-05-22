@@ -1,5 +1,6 @@
-// next button
-nextBtn.addEventListener("click", () => {
+//tefo komane auto-play feature code for the cohesion core image carousel//
+// autoplay
+setInterval(() => {
 
     currentSlide++;
 
@@ -9,30 +10,4 @@ nextBtn.addEventListener("click", () => {
 
     updateCarousel();
 
-});
-
-// previous button
-prevBtn.addEventListener("click", () => {
-
-    currentSlide--;
-
-    if(currentSlide < 0){
-        currentSlide = slides.length - 1;
-    }
-
-    updateCarousel();
-
-});
-
-// previous button
-prevBtn.addEventListener("click", () => {
-
-    currentSlide--;
-
-    if(currentSlide < 0){
-        currentSlide = slides.length - 1;
-    }
-
-    updateCarousel();
-
-});
+}, 6000);

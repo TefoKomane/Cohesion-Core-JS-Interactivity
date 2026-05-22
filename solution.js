@@ -1,18 +1,38 @@
-// remove active dots
-dots.forEach((dot) => {
+//Nonkululeko Maphanga transition feature code for the COHESION CORE IMAGE Carousel Task//
+// update carousel
+function updateCarousel(){
+
+    // remove old classes
+    slides.forEach((slide) => {
+        slide.classList.remove(
+            "active",
+            "left",
+            "right"
+        );
+    });
+
+    // remove active dots
+    dots.forEach((dot) => {
         dot.classList.remove("active-dot");
-});
+    });
 
-// active dot
-dots[currentSlide].classList.add("active-dot");
-}
+    // active slide
+    slides[currentSlide].classList.add("active");
 
+    // left slide
+    let leftSlide = currentSlide - 1;
 
+    if(leftSlide < 0){
+        leftSlide = slides.length - 1;
+    }
 
-// dots click
-dots.forEach((dot, index) => {
+    slides[leftSlide].classList.add("left");
 
-dot.addEventListener("click", () => {
-        currentSlide = index;
-    updateCarousel();
-});
+    // right slide
+    let rightSlide = currentSlide + 1;
+
+    if(rightSlide >= slides.length){
+        rightSlide = 0;
+    }
+
+    slides[rightSlide].classList.add("right");

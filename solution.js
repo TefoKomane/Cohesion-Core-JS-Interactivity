@@ -1,38 +1,38 @@
-//Nonkululeko Maphanga transition feature code for the COHESION CORE IMAGE Carousel Task//
-// update carousel
-function updateCarousel(){
+// next button
+nextBtn.addEventListener("click", () => {
 
-    // remove old classes
-    slides.forEach((slide) => {
-        slide.classList.remove(
-            "active",
-            "left",
-            "right"
-        );
-    });
+    currentSlide++;
 
-    // remove active dots
-    dots.forEach((dot) => {
-        dot.classList.remove("active-dot");
-    });
-
-    // active slide
-    slides[currentSlide].classList.add("active");
-
-    // left slide
-    let leftSlide = currentSlide - 1;
-
-    if(leftSlide < 0){
-        leftSlide = slides.length - 1;
+    if(currentSlide >= slides.length){
+        currentSlide = 0;
     }
 
-    slides[leftSlide].classList.add("left");
+    updateCarousel();
 
-    // right slide
-    let rightSlide = currentSlide + 1;
+});
 
-    if(rightSlide >= slides.length){
-        rightSlide = 0;
+// previous button
+prevBtn.addEventListener("click", () => {
+
+    currentSlide--;
+
+    if(currentSlide < 0){
+        currentSlide = slides.length - 1;
     }
 
-    slides[rightSlide].classList.add("right");
+    updateCarousel();
+
+});
+
+// previous button
+prevBtn.addEventListener("click", () => {
+
+    currentSlide--;
+
+    if(currentSlide < 0){
+        currentSlide = slides.length - 1;
+    }
+
+    updateCarousel();
+
+});
